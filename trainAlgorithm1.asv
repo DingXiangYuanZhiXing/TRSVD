@@ -1,5 +1,0 @@
-function [M, A, U] = trainAlgorithm1(I, k)
-% traning process for Traditional Matrix PCA Method
-% I  - k*l*n tensor, n2 = number of images
-% k  - scalar
-end
