@@ -1,3 +1,6 @@
 [submodule "tproduct"]
 	path = tproduct
 	url = https://github.com/canyilu/tproduct
+[submodule "tensor_toolbox"]
+	path = tensor_toolbox
+	url = https://gitlab.com/tensors/tensor_toolbox
