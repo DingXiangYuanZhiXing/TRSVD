@@ -13,6 +13,7 @@ M = mean(L,2);
 
 % mean-deviation form of L
 A = zeros(size(L));
+N = size(L,2); % number of images
 for i = 1:N
     A = L(:,i,:) - M;
 end
