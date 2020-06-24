@@ -1,12 +1,12 @@
-function [M, A, U_k] = trainAlgorithm4(L, k)
-% traning process for T-SVD Method
+function [M, U_k, C] = trainAlgorithm4(L, k)
+% Traning process for T-SVD Method
 % Input: 
 %   L  - l*N*n tensor, l = number of images
 %   k  - scalar
 % Output:
 %   M  - l*1*n tensor
-%   A  - l*N*n tensor
 %   U_k- l*k*n tensor 'econ' form
+%   C  - k*N*n tensor
 
 % mean image
 M = mean(L,2);
@@ -18,5 +18,8 @@ for i = 1:N
 end
 
 % left singular vectors of tensor with only k elements
+[U,~,~] = tsvd(A);
+U_k = U(:,1:k,:);
 
+C = tprod(tran(U_k), A);
 end
