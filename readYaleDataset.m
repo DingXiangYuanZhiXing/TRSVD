@@ -5,8 +5,8 @@ function readYaleDataset(dataDir , saveName) %
     for i = 3:numel(dirs)  
         imgDir = dirs(i).name;  
         imgDir = fullfile(dataDir, imgDir);  
-        imgList = dir(fullfile(imgDir, '*.pgm'));  % 65个
-        for j = 1:20  %numel(imgList)，每个数据集里只取20张图片  
+        imgList = dir(fullfile(imgDir, '*.pgm'));  % 
+        for j = 1:20  %numel(imgList)
             imgName = imgList(j).name;  
             if strcmp('Ambient.pgm',  imgName(end-10:end))  
                 continue;  
