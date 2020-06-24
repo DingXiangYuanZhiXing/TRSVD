@@ -15,7 +15,7 @@ M = mean(L,2);
 A = zeros(size(L));
 N = size(L,2); % number of images
 for i = 1:N
-    A = L(:,i,:) - M;
+    A(:,i,:) = L(:,i,:) - M;
 end
 
 % left singular vectors of tensor with only k elements
