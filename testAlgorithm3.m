@@ -1,4 +1,4 @@
-function [label, Fro_norm] = testAlgorithm4(J, M, U_k, C)
+function [label, Fro_norm] = testAlgorithm3(J, M, U_k, C)
 % Testing process for T-SVD Method
 % Input:
 %   J   - l*n matrix
@@ -13,8 +13,8 @@ function [label, Fro_norm] = testAlgorithm4(J, M, U_k, C)
 T(:,1,:) = twist(J) - M;
 B = tprod(tran(U_k),T); % k*1*n tensor
 
-Fro_norm = +Inf;
-label = 0;
+Fro_norm = +Inf; % the minimum forbenius norm 
+label = 0; % the label of minimum norm image
 for j = 1:N
     tmp_norm = norm(B - C(:,j,:), 'fro');
     if tmp_norm < Fro_norm

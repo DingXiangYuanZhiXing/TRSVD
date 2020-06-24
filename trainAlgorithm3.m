@@ -1,4 +1,4 @@
-function [M, U_k, C] = trainAlgorithm4(L, k)
+function [M, U_k, C] = trainAlgorithm3(L, k)
 % Traning process for T-SVD Method
 % Input: 
 %   L  - l*N*n tensor, l = number of images
