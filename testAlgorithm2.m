@@ -1,5 +1,5 @@
-function [label, Fro_norm] = testAlgorithm1(J, M, U_k, C)
-% testing process for Traditional Matrix PCA Method
+function [label, Fro_norm] = testAlgorithm2(J, M, U_k, C)
+% Testing process for T-SVD Method
 % Input:
 %   J   - l*n matrix
 %   M   - l*1*n tensor

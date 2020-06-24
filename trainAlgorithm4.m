@@ -1,12 +1,12 @@
 function [M, Q_k, C] = trainAlgorithm4(L, k)
 % Traning process for T-PQR Method
 % Input: 
-%   L  - l*N*n tensor, l = number of images
-%   k  - scalar
+%   L   - l*N*n tensor, N = number of images
+%   k   - scalar
 % Output:
-%   M  - l*1*n tensor
-%   U_k- l*k*n tensor 'econ' form
-%   C  - k*N*n tensor
+%   M   - l*1*n tensor
+%   U_k - l*k*n tensor 'econ' form
+%   C   - k*N*n tensor
 
 % mean image
 M = mean(L,2);
