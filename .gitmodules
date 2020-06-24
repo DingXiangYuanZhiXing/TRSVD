@@ -1,0 +1,3 @@
+[submodule "tproduct"]
+	path = tproduct
+	url = https://github.com/canyilu/tproduct
