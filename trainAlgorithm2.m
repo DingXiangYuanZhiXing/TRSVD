@@ -1,26 +1,22 @@
-function [M, U_k, C] = trainAlgorithm2(L, k)
-% Traning process for T-SVD Method
+function [B, U_p] = trainAlgorithm2(L)
+% Traning process for TensorFaces Method
 % Input: 
-%   L  - l*N*n tensor, l = number of images
-%   k  - scalar
+%   L  - P*V*I*E*pix tensor, pix = the length of each vectorized image
 % Output:
-%   M  - l*1*n tensor
-%   U_k- l*k*n tensor 'econ' form
-%   C  - k*N*n tensor
+%   U_p- P*P tensor
+%   B  - P*V*I*E*pix tensor
+% Note:
+%   Z  - P*V*I*E*(PVIE) core tensor
+%   U_v- V*V tensor
+%   U_i- I*I tensor
+%   U_e- E*E tensor
+%   U_pix- pix*(PVIE) tensor
 
-% mean image
-M = mean(L,2);
 
-% mean-deviation form of L
-A = zeros(size(L));
-N = size(L,2); % number of images
-for i = 1:N
-    A(:,i,:) = L(:,i,:) - M;
-end
+% hosvd to get core tensor and orthogonal matrices
 
-% left singular vectors of tensor with only k elements
-[U,~,~] = tsvd(A);
-U_k = U(:,1:k,:);
+% compute tensor B
+B=zeros(size(L));
+B=tmul(tmul(tmul(tmul(Z,U_v,2),U_i,3),U_e,4),U_pix,5);
 
-C = tprod(tran(U_k), A);
 end
