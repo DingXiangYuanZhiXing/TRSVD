@@ -12,7 +12,7 @@ function [M, U_k, C] = trainAlgorithm1(L, k)
 M = mean(L,2);
 
 % mean-deviation form of L
-A = L - M; 
+A = L - repmat(M,[1,size(L,2)]);
 
 % left singular vectors of tensor with only k elements
 [U,~,~] = svd(A, 'econ');
