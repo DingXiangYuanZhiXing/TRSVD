@@ -1,0 +1,82 @@
+\begin{thebibliography}{10}
+
+\bibitem{bader2012matlab}
+Brett~W Bader, Tamara~G Kolda, et~al.
+\newblock Matlab tensor toolbox version 2.5.
+\newblock {\em Available online, January}, 7, 2012.
+
+\bibitem{candes2011robust}
+Emmanuel~J Cand{\`e}s, Xiaodong Li, Yi~Ma, and John Wright.
+\newblock Robust principal component analysis?
+\newblock {\em Journal of the ACM (JACM)}, 58(3):1--37, 2011.
+
+\bibitem{chen2009tensor}
+Jie Chen and Yousef Saad.
+\newblock On the tensor svd and the optimal low rank orthogonal approximation
+  of tensors.
+\newblock {\em SIAM journal on Matrix Analysis and Applications},
+  30(4):1709--1734, 2009.
+
+\bibitem{hao2013facial}
+Ning Hao, Misha~E Kilmer, Karen Braman, and Randy~C Hoover.
+\newblock Facial recognition using tensor-tensor decompositions.
+\newblock {\em SIAM Journal on Imaging Sciences}, 6(1):437--463, 2013.
+
+\bibitem{kilmer2013third}
+Misha~E Kilmer, Karen Braman, Ning Hao, and Randy~C Hoover.
+\newblock Third-order tensors as operators on matrices: A theoretical and
+  computational framework with applications in imaging.
+\newblock {\em SIAM Journal on Matrix Analysis and Applications},
+  34(1):148--172, 2013.
+
+\bibitem{kilmer2011factorization}
+Misha~E Kilmer and Carla~D Martin.
+\newblock Factorization strategies for third-order tensors.
+\newblock {\em Linear Algebra and its Applications}, 435(3):641--658, 2011.
+
+\bibitem{kilmer2008third}
+Misha~E Kilmer, Carla~D Martin, and Lisa Perrone.
+\newblock A third-order generalization of the matrix svd as a product of
+  third-order tensors.
+\newblock {\em Tufts University, Department of Computer Science, Tech. Rep.
+  TR-2008-4}, 2008.
+
+\bibitem{kolda2001orthogonal}
+Tamara~G Kolda.
+\newblock Orthogonal tensor decompositions.
+\newblock {\em SIAM Journal on Matrix Analysis and Applications},
+  23(1):243--255, 2001.
+
+\bibitem{kolda2009tensor}
+Tamara~G Kolda and Brett~W Bader.
+\newblock Tensor decompositions and applications.
+\newblock {\em SIAM review}, 51(3):455--500, 2009.
+
+\bibitem{lu2016tensor}
+Canyi Lu, Jiashi Feng, Yudong Chen, Wei Liu, Zhouchen Lin, and Shuicheng Yan.
+\newblock Tensor robust principal component analysis: Exact recovery of
+  corrupted low-rank tensors via convex optimization.
+\newblock In {\em Proceedings of the IEEE conference on computer vision and
+  pattern recognition}, pages 5249--5257, 2016.
+
+\bibitem{pearson1901liii}
+Karl Pearson.
+\newblock Liii. on lines and planes of closest fit to systems of points in
+  space.
+\newblock {\em The London, Edinburgh, and Dublin Philosophical Magazine and
+  Journal of Science}, 2(11):559--572, 1901.
+
+\bibitem{vasilescu2002multilinear}
+M~Alex~O Vasilescu and Demetri Terzopoulos.
+\newblock Multilinear analysis of image ensembles: Tensorfaces.
+\newblock In {\em European conference on computer vision}, pages 447--460.
+  Springer, 2002.
+
+\bibitem{wright2009robust}
+John Wright, Arvind Ganesh, Shankar Rao, Yigang Peng, and Yi~Ma.
+\newblock Robust principal component analysis: Exact recovery of corrupted
+  low-rank matrices via convex optimization.
+\newblock In {\em Advances in neural information processing systems}, pages
+  2080--2088, 2009.
+
+\end{thebibliography}
