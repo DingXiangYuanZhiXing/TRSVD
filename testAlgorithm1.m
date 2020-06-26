@@ -3,9 +3,8 @@ function [label, Fro_norm] = testAlgorithm1(J, M, U_k, C)
 % Input:
 %   J   - ln*1 matrix
 %   M   - ln*1 matrix
-%   A   - ln*N matrix
 %   U_k - ln*k 'econ' form
-%   c   - k*1 matrix
+%   C   - k*N matrix
 % Output:
 %   label    - return the label of closest image
 %   Fro_norm - return the frobenius norm of closest image
@@ -14,14 +13,14 @@ t = J - M;
 t = t(:);
 
 c = U_k' * t;
-
+N=size(C,2);
 Fro_norm = +Inf; % the minimum forbenius norm 
 label = 0; % the label of minimum norm image
 for j = 1:N
     tmp_norm = norm(c - C(:,j), 'fro');
     if tmp_norm < Fro_norm
         Fro_norm = tmp_norm;
-        label = j;
+        label = j; % j-th image in the whole training set
     end
 end
 end
