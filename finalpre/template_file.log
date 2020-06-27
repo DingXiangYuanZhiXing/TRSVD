@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2020.6.23)  28 JUN 2020 02:46
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2020.6.23)  28 JUN 2020 03:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -609,65 +609,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 76--77
 
  []
 
-
-LaTeX Warning: Citation `hao2013facial' on page 1 undefined on input line 78.
-
 [1
 
-]
-
-LaTeX Warning: Citation `pearson1901liii' on page 2 undefined on input line 82.
-
-
-
-LaTeX Warning: Citation `vasilescu2002multilinear' on page 2 undefined on input
- line 90.
-
-
-LaTeX Warning: Citation `kilmer2008third' on page 2 undefined on input line 98.
-
-
-
-LaTeX Warning: Citation `kilmer2011factorization' on page 2 undefined on input 
-line 98.
-
-
-LaTeX Warning: Citation `kilmer2013third' on page 2 undefined on input line 98.
-
-
-
-LaTeX Warning: Citation `kilmer2011factorization' on page 2 undefined on input 
-line 98.
-
-
-LaTeX Warning: Citation `hao2013facial' on page 2 undefined on input line 98.
-
-
-LaTeX Warning: Citation `lu2016tensor' on page 2 undefined on input line 99.
-
-
-LaTeX Warning: Citation `candes2011robust' on page 2 undefined on input line 99
-.
-
-
-LaTeX Warning: Citation `kilmer2011factorization' on page 2 undefined on input 
-line 99.
-
-[2] [3] [4] [5] [6] (./template_file.bbl [7]) [8] (./template_file.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+] [2] [3] [4] [5] [6] (./template_file.bbl) [7] (./template_file.aux) ) 
 Here is how much of TeX's memory you used:
- 9802 strings out of 479277
- 228791 string characters out of 5878579
- 560526 words of memory out of 5000000
- 27257 multiletter control sequences out of 15000+600000
+ 9798 strings out of 479277
+ 228730 string characters out of 5878579
+ 556569 words of memory out of 5000000
+ 27253 multiletter control sequences out of 15000+600000
  547452 words of font info for 100 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  57i,13n,72p,674b,400s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on template_file.pdf (8 pages).
+Output written on template_file.pdf (7 pages).

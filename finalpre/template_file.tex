@@ -182,35 +182,9 @@ $$ \|\mathcal{A}\|_{F}=\sqrt{\sum_{i=1}^{n_{1}} \sum_{j=1}^{n_{2}} \sum_{k=1}^{n
 	\end{algorithmic}
 \end{algorithm}  
 
-% algorithm for tensorface
-\begin{algorithm}  
-	\caption{TensorFaces Method.}
-	\begin{algorithmic} 
-		\Require  
-		Training images $ \mathbf{I}_{p, v, i, e}, p=1, \ldots, P, v=1, \ldots, V, i=1, \ldots, I, e=1, \ldots, E $;
-		Testing Image $ \mathbf{J} $
-		\Ensure  
-		Coefficients of testing images with some tensor basis and comparison  
-		\For  {$p=1, \ldots, P, v=1, \ldots, V, i=1, \ldots, I, e=1, \ldots, E$}
-		\State $ \mathcal{L}(p, v, i, e, :) \leftarrow  vectorized \quad \mathbf{I}_{p, v,i,e} $
-		\EndFor
-		\State Do the HOSVD to get the core tensor $ \mathcal{Z} $ and orthogonal factor matrices  $\mathbf{U}_{i}$
-		\State $\mathcal{L} \leftarrow \mathcal{Z} \times_{1} \mathbf{U}_{p} \times_{2} \mathbf{U}_{v} \times_{3} \mathbf{U}_{i} \times_{4} \mathbf{U}_{e} \times_{5} \mathbf{U}_{p i x}$
-		\State $ \mathcal{B} \leftarrow \mathcal{Z} \times_{2} \mathbf{U}_{v} \times_{3} \mathbf{U}_{i} \times_{4} \mathbf{U}_{e} \times_{5} \mathbf{U}_{p i x}  $
-		\State $ \mathcal{T}(1,1,1,1,:) \leftarrow  $ vectorized testing image
-		\For  {$v=1, \ldots, V, i=1, \ldots, I, e=1, \ldots, E ; $}
-		\State $ c_{v, i, e} \leftarrow\left(\mathcal{B}_{v, i, e}^{\dagger}\right)^{T} \mathcal{T}(1,1,1,1,:) $
-		\For {$p=1, \ldots, P $}
-		\State $Calculate  \left\|c_{v, i, e}-\mathbf{U}_{p}(p,:)^{T}\right\|_{F}$
-		\EndFor
-		\EndFor
-		\State Claim that the training image whose coefficient is closest to that of the test image is the match. 
-	\end{algorithmic}
-\end{algorithm}
-
 % algorithm for t-svd
 \begin{algorithm}  
-	\caption{T-SVD Method I.}
+	\caption{T-SVD Method.}
 	\begin{algorithmic} 
 		\Require  
 		Training:  $\mathbf{I}_{i}$, $i=1,2, \ldots, N, $ Testing: $ \mathbf{J}$,  Truncation index $ k $
