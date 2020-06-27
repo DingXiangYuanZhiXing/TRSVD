@@ -170,7 +170,8 @@ $$ \|\mathcal{A}\|_{F}=\sqrt{\sum_{i=1}^{n_{1}} \sum_{j=1}^{n_{2}} \sum_{k=1}^{n
 		\EndFor
 		\State $ \mathbf{M} \leftarrow $ mean image
 		\State $ \mathbf{A} \leftarrow $ mean-deviation form of $ \mathbf{L}  $
-		\State $ \mathbf{U} \leftarrow $ left singular vectors of $ \mathbf{A}   \mathbf{G} \leftarrow \mathbf{U}(:, 1: k)^{T} \mathbf{A} $
+		\State $ \mathbf{U} \leftarrow $ left singular vectors of $ \mathbf{A} $  
+		\State $\mathbf{G} \leftarrow \mathbf{U}(:, 1: k)^{T} \mathbf{A} $
 		\State $ \mathbf{T} \leftarrow \mathbf{J}-\mathbf{M} $
 		\State $ \mathbf{t} \leftarrow $ vectorized form of $ \mathbf{T} $  
 		\State $ \mathbf{c} \leftarrow \mathbf{U}(:, 1: k)^{T} \mathbf{t}  $

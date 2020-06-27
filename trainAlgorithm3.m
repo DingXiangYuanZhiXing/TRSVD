@@ -19,8 +19,8 @@ for i = 1:N
 end
 
 % left singular vectors of tensor with only k elements
-[U,~,~] = tsvd(A, 'econ');
-U_k = U(:,1:k,:);
+[U, ~, ~] = tsvd(A, 'econ');
+U_k = U(:, 1:k, :);
 
 C = tprod(tran(U_k), A);
 end

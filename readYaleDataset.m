@@ -23,6 +23,7 @@ for i = 3:numel(dirs)
             continue;  
         end  
         im = imread(fullfile(imgDir, imgName));  
+        %disp(fullfile(imgDir, imgName))
         if size(im, 3) ==3  
             im = rgb2gray(im);  
         end  
