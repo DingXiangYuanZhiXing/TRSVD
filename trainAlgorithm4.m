@@ -19,7 +19,7 @@ for i = 1:N
 end
 
 % left singular vectors of tensor with only k elements
-[Q,~] = tqr(A);
+[Q,~] = tqr(A, 'econ');
 Q_k = Q(:,1:k,:);
 
 C = tprod(tran(Q_k), A);

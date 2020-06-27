@@ -10,6 +10,7 @@ function [label, Fro_norm] = testAlgorithm3(J, M, U_k, C)
 %   label    - return the label of closest image
 %   Fro_norm - return the frobenius norm of closest image
 N=size(C,2);
+
 T(:,1,:) = J - M;
 B = tprod(tran(U_k),T); % k*1*n tensor
 

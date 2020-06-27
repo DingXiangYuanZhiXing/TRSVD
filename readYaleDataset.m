@@ -12,7 +12,7 @@ N = readnum*(numel(dirs)-2);
 disp(N);
 data = zeros(l,N,n);  
 labels = [];  
-num=1;
+num = 1;
 for i = 3:numel(dirs)  
     imgDir = dirs(i).name;  
     imgDir = fullfile(dataDir, imgDir);  
@@ -26,11 +26,11 @@ for i = 3:numel(dirs)
         if size(im, 3) ==3  
             im = rgb2gray(im);  
         end  
-        im = imresize(im, [l n]);  
-        disp(size(im))
+        %im = imresize(im, [l n]);  % resize to make sure all images have same size
+        %disp(size(im))
         data(:,num,:) = im;  
-        num=num+1;
-    end  
+        num = num+1;
+    end
     labels = [labels ones(1, readnum) * (i-2)];  
 end
 end

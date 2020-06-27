@@ -8,6 +8,7 @@ function [label, Fro_norm] = testAlgorithm1(J, M, U_k, C)
 % Output:
 %   label    - return the label of closest image
 %   Fro_norm - return the frobenius norm of closest image
+N=size(C,2);
 
 t = J - M;
 t = t(:);
