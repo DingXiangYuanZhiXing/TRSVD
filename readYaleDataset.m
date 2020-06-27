@@ -26,7 +26,8 @@ for i = 3:numel(dirs)
         if size(im, 3) ==3  
             im = rgb2gray(im);  
         end  
-        im = imresize(im, [32 32]);  
+        im = imresize(im, [l n]);  
+        disp(size(im))
         data(:,num,:) = im;  
         num=num+1;
     end  

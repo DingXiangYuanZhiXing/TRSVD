@@ -1,14 +1,14 @@
 %% load data
 disp('loading data...');  
-dataDir = 'E:\matlab³ÌÐò\CroppedYale';  
+dataDir = './database/CroppedYale';  
 l=32;
-readnum=20;
+readnum=60;
 n=32;
 [data, labels]=readYaleDataset(dataDir,l,readnum,n);
 
 %%
 disp('get training and testing data index...');  
-num_trainImg=15;
+num_trainImg=round(0.9*readnum);
 num_class = size(unique(labels), 2);  
 trainIdx = [];  
 testIdx = [];  
@@ -26,7 +26,7 @@ test_x = double(data(:, testIdx,:));
 test_y = labels(testIdx);  
 
 %%
-k=20;
+k=40;
 disp('training...');
 [M, U_k, C] = trainAlgorithm4(train_x, k);
 %%
