@@ -61,14 +61,14 @@
 \renewcommand{\algorithmicensure}{\textbf{Output:}} % Use Output in the format of Algorithm
 \usepackage{babel}
 \begin{document}
-\title{Face Recognition with Robust T-SVD}
+\title{Face Recognition with Tensor SVD}
 \author{Shanwen Pu,\quad Siya Liu}
 \maketitle
 
 
 \abstract{A tensor is a multidimensional array. First-order tensors and second-order tensors can be viewed as
 vectors and matrices, respectively. Traditional tensor algebra generalize matrix SVD to CP decomposition and HOSVD. But in the recently new tensor framework, T-SVD is another generalization of matrix SVD with nearly the same representation. Moreover, the new tensor product(t-product) can be accelerated by FFT, which improves our T-SVD.
-We solve the face recognition task on several databases by new tensor robust SVD(TRSVD) and compare our new method with several popular methods, e.g PCA, HOSVD, T-SVD to verify performance and stability.}
+We solve the face recognition task on several databases by new robust SVD(TRSVD) and compare our new method with several popular methods, e.g PCA, Tensor QR to verify performance and stability.}
 
 \section{Introduction}
 To develop automatic procedures for face recognition that are robust with respect to varying conditions is a challenging research problem. PCA(SVD) is a popular technique, but it doesn't perform well when several environment factors are varied. By letting the modes of the tensor represent a different viewing condition, it became possible to improve the precision of the recognition algorithm compared to PCA.\\
