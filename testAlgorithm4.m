@@ -1,7 +1,7 @@
 function [label, Fro_norm] = testAlgorithm4(J, M, Q_k, C)
-% Testing process for T-PQR Method
+% Testing process for T-SVD Method
 % Input:
-%   J   - l*n matrix
+%   J   - l*1*n matrix
 %   M   - l*1*n tensor
 %   A   - l*N*n tensor
 %   U_k - l*k*n 'econ' form
@@ -10,7 +10,8 @@ function [label, Fro_norm] = testAlgorithm4(J, M, Q_k, C)
 %   label    - return the label of closest image
 %   Fro_norm - return the frobenius norm of closest image
 N=size(C,2);
-T(:,1,:) = twist(J) - M;
+
+T(:,1,:) = J - M;
 B = tprod(tran(Q_k),T); % k*1*n tensor
 
 Fro_norm = +Inf; % the minimum forbenius norm 

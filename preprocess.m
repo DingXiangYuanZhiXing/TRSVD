@@ -1,12 +1,12 @@
 %% load data
 disp('loading data...');  
-dataDir = './database/ExtendedYaleB';  
-% dataDir = './database/CroppedYale';  
+%dataDir = './database/ExtendedYaleB';  
+dataDir = './database/CroppedYale';  
 % 192 60 168 
 % 480 250 640
-l = 480;
-readnum = 50;
-n = 640;
+l = 192;
+readnum = 30;
+n = 168;
 [data, labels] = readYaleDataset(dataDir,l,readnum,n);
 
 %%
