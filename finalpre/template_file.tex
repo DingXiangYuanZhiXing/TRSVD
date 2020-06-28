@@ -144,7 +144,8 @@ A_{n_{3}} & A_{n_{3}-1} & \ddots & A_{2} & A_{1}
 \paragraph{Tensor Product} Let  $\mathcal{A}$  be  $n_{1} \times n_{2} \times n_{3}$  and  $\mathcal{B}$  be  $n_{2} \times \ell \times n_{3}$ .  Then the product
 $\mathcal{A} * \mathcal{B}$  is the  $n_{1} \times \ell \times n_{3}$  tensor
 $$\mathcal{A} * \mathcal{B}=\text { fold }(\operatorname{circ}(\text { unfold }(\mathcal{A}, 1)) \cdot \operatorname{unfold}(\mathcal{B}, 1), 1)$$
-\text { LEMMA }  $$\mathcal{A} *(\mathcal{B} * \mathcal{C})=(\mathcal{A} * \mathcal{B}) * \mathcal{C}$$
+\text { LEMMA1 }  $$\mathcal{A} *(\mathcal{B} * \mathcal{C})=(\mathcal{A} * \mathcal{B}) * \mathcal{C}$$
+\text { LEMMA2 }  $$(\mathcal{A}^T *\mathcal{B})(1:k,:,:) = (\mathcal{A}(:,1:k,:))^T * \mathcal{B})$$
 \paragraph{Identity Tensor} The  $n \times n \times \ell$  identity tensor  $\mathcal{I}_{n n \ell}$  is the tensor whose front face is the  $n \times n$  identity matrix, and whose other faces are all zeros.
 \paragraph{Inverse Tensor} An  $n \times n \times n$  tensor  $\mathcal{A}$  has an inverse  $\mathcal{B}$  provided that
 $$\mathcal{A} * \mathcal{B}=\mathcal{I}, \quad \text { and } \quad \mathcal{B} * \mathcal{A}=\mathcal{I}$$
@@ -243,10 +244,10 @@ We apply TRPCA for image denoising. Note that the choice of $ \lambda $ is criti
 		\mu_{\max }=1 \mathrm{e} 10, \epsilon=1 \mathrm{e}-8 $
 		\While {not converged}
 		\State 1. Update $ \mathcal{L}_{k+1} $ by
-		$$ \boldsymbol{C}_{k+1}=\underset{\boldsymbol{\boldsymbol{\mathcal { L }}}}{\operatorname{argmin}}\|\boldsymbol{\mathcal { L }}\|_{*}+\frac{\mu_{k}}{2}\left\|\boldsymbol{\mathcal { L }}+\boldsymbol{\mathcal { E }}_{k}-\boldsymbol{X}+\frac{\boldsymbol{Y}_{k}}{\mu_{k}}\right\|_{F}^{2} $$
+		$$ \boldsymbol{C}_{k+1}=\underset{\boldsymbol{\boldsymbol{\mathcal { L }}}}{\operatorname{argmin}}\|\boldsymbol{\mathcal { L }}\|_{*}+\frac{\mu_{k}}{2}\left\|\boldsymbol{\mathcal{L}}+\boldsymbol{\mathcal{E}_k}-\boldsymbol{\mathcal{X}}+\frac{\boldsymbol{\mathcal{Y}}_{k}}{\mu_{k}}\right\|_{F}^{2} $$
 		\State 2. Update $ \mathcal{E}_{k+1} $ by
 		$$
-		\mathcal{E}_{k+1}=\underset{\varepsilon}{\operatorname{argmin}} \lambda\|\mathcal{E}\|_{1}+\frac{\mu_{k}}{2}\left\|\mathcal{L}_{k+1}+\mathcal{E}-\mathcal{X}+\frac{\mathcal{Y}_{k}}{\mu_{k}}\right\|_{F}^{2} $$
+		\mathcal{E}_{k+1}=\underset{\varepsilon}{\operatorname{argmin}} \lambda\|\mathcal{E}\|_{1}+\frac{\mu_{k}}{2}\left\|\boldsymbol{\mathcal{L}}_{k+1}+\boldsymbol{\mathcal{E}}-\boldsymbol{\mathcal{X}}+\frac{\boldsymbol{\mathcal{Y}}_{k}}{\mu_{k}}\right\|_{F}^{2} $$
 		\State 3.  $$\boldsymbol{\mathcal{Y}}_{k+1}=\boldsymbol{\mathcal{Y}}_{k}+\mu_{k}\left(\mathcal{L}_{k+1}+\mathcal{E}_{k+1}-\boldsymbol{X}\right) $$
 		4. Update $ \mu_{k+1} $ by $ \mu_{k+1}=\min \left(\rho \mu_{k}, \mu_{\max }\right) $
 		5. Check the convergence conditions
@@ -260,6 +261,7 @@ We apply TRPCA for image denoising. Note that the choice of $ \lambda $ is criti
 		\EndWhile 
 	\end{algorithmic}
 \end{algorithm}
+
 
 \section{Experiments}
 \subsection{Storage Comparison}
@@ -289,6 +291,18 @@ We compare the running time for same $k$ of different algorithms
 PCA & T-SVD & T-PQR & TRSVD \\
 \hline
 1   & 5.26  & 5.31  & 10.1 
+\end{tabular}
+\end{table}
+
+\subsection{Acceleration TIPS}
+Use LEMMA2 to accelerate our algorithm. Time of different algorithms:
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\hline
+T-SVD & T-SVD-With LEMMA2\\
+\hline
+9.8   & 1  
 \end{tabular}
 \end{table}
 
