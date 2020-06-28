@@ -1,0 +1,12 @@
+%% load train_x train_y test_x test_y
+load('matlab.mat')
+opts.mu = 1e-6;
+opts.rho = 1.1;
+opts.max_iter = 500;
+opts.DEBUG = 1;
+l=192;
+n=168;
+lambda = 1/sqrt(n*max(l,length(train_x)));
+[Lhat,Shat] = trpca_tnn(train_x,lambda,opts); 
+
+trank = tubalrank(Lhat)
