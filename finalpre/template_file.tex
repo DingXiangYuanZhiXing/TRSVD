@@ -261,6 +261,37 @@ We apply TRPCA for image denoising. Note that the choice of $ \lambda $ is criti
 	\end{algorithmic}
 \end{algorithm}
 
+\section{Experiments}
+\subsection{Storage Comparison}
+\begin{align*}
+\text{Storage}_{T-SVD} = K_{T-SVD} \times  l + K_{T-SVD} \times (\text{num of training images})\\
+\text{Storage}_{T-PQR} = K_{T-PQR} \times  l + K_{T-PQR} \times (\text{num of training images})\\
+\text{Storage}_{PCA} = K_{PCA} \times  l \times n + K_{PCA} \times (\text{num of training images})
+\end{align*}
+We compare the storage for same $k$ for different algorithms
+\begin{table}[H]
+\centering
+\begin{tabular}{llll}
+\hline
+PCA & T-SVD & T-PQR & TRSVD \\
+\hline
+12.5   & 1  & 1.12  & 2.1
+\end{tabular}
+\end{table}
+
+
+\subsection{Time Comparison}
+We compare the running time for same $k$ of different algorithms
+\begin{table}[H]
+\centering
+\begin{tabular}{llll}
+\hline
+PCA & T-SVD & T-PQR & TRSVD \\
+\hline
+1   & 5.26  & 5.31  & 10.1 
+\end{tabular}
+\end{table}
+
 \newpage
 % bibliography
 \nocite{*}
