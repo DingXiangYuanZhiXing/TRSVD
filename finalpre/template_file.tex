@@ -120,7 +120,12 @@ for $ j_{n}=1,2, \ldots, c_{n} $.
 \paragraph{Tensor Decompositions} A decomposition of a tensor $ \mathcal{A} \in \mathbb{R}^{d_{1} \times d_{2} \times \cdots \times d_{N}} $ is of the form
 $$
 \mathcal{A}=\mathcal{B} \times_{1} S^{(1)} \times_{2} S^{(2)} \times \cdots \times_{N} S^{(N)} $$
-where $ \mathcal{B} \in \mathbb{R}^{c_{1} \times c_{2} \times \cdots \times c_{N}} $ is called the core tensor, and $ S^{(n)} \in \mathbb{R}^{d_{n} \times c_{n}} $ for $ n=1, \ldots, N $ are called side-matrices. An illustration is given in Figure 2.1.
+where $ \mathcal{B} \in \mathbb{R}^{c_{1} \times c_{2} \times \cdots \times c_{N}} $ is called the core tensor, and $ S^{(n)} \in \mathbb{R}^{d_{n} \times c_{n}} $ for $ n=1, \ldots, N $ are called side-matrices. An illustration is given in Figure 1.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.6]{decomposition}
+	\caption{Tensor Decompositions}
+\end{figure}
 \paragraph{Fold and Unfold Operators} We make use of the fold and unfold operators. Suppose that  $\mathcal{A} \in \mathbb{R}^{n_{1} \times n_{2} \times n_{3}}$ and that each frontal face of the tensor is defined by  $n_{1} \times n_{2}$  matrices  $\mathcal{A}(:,:, 1), \ldots,   \mathcal{A}\left(:,:, n_{3}\right)$.  Then unfold is defined by
 \begin{equation*}
 \operatorname{unfold}(\mathcal{A}, 1)=\left[\begin{array}{c}
@@ -144,8 +149,7 @@ A_{n_{3}} & A_{n_{3}-1} & \ddots & A_{2} & A_{1}
 \paragraph{Tensor Product} Let  $\mathcal{A}$  be  $n_{1} \times n_{2} \times n_{3}$  and  $\mathcal{B}$  be  $n_{2} \times \ell \times n_{3}$ .  Then the product
 $\mathcal{A} * \mathcal{B}$  is the  $n_{1} \times \ell \times n_{3}$  tensor
 $$\mathcal{A} * \mathcal{B}=\text { fold }(\operatorname{circ}(\text { unfold }(\mathcal{A}, 1)) \cdot \operatorname{unfold}(\mathcal{B}, 1), 1)$$
-\text { LEMMA1 }  $$\mathcal{A} *(\mathcal{B} * \mathcal{C})=(\mathcal{A} * \mathcal{B}) * \mathcal{C}$$
-\text { LEMMA2 }  $$(\mathcal{A}^T *\mathcal{B})(1:k,:,:) = (\mathcal{A}(:,1:k,:))^T * \mathcal{B})$$
+\text { LEMMA }  $$\mathcal{A} *(\mathcal{B} * \mathcal{C})=(\mathcal{A} * \mathcal{B}) * \mathcal{C}$$
 \paragraph{Identity Tensor} The  $n \times n \times \ell$  identity tensor  $\mathcal{I}_{n n \ell}$  is the tensor whose front face is the  $n \times n$  identity matrix, and whose other faces are all zeros.
 \paragraph{Inverse Tensor} An  $n \times n \times n$  tensor  $\mathcal{A}$  has an inverse  $\mathcal{B}$  provided that
 $$\mathcal{A} * \mathcal{B}=\mathcal{I}, \quad \text { and } \quad \mathcal{B} * \mathcal{A}=\mathcal{I}$$
@@ -156,7 +160,22 @@ $$\mathcal{A}^{T}=\text { fold }\left(\text { unfold }\left(\mathcal{A}, 1,\left
 \paragraph{Permutation Tensor} A permutation tensor is an $ n \times n \times \ell $ tensor  $\mathcal{P}=\left(p_{i j k}\right)$  with exactly $ n $ entries of unity, such that if  $p_{i j k}=1$,  it is the only non-zero entry in row i, column j, and slice k.
 \paragraph{F-Norm of Tensor} Suppose $\mathcal{A}=\left(a_{i j k}\right)$ is size $ n_{1} \times n_{2} \times n_{3} $.  Then
 $$ \|\mathcal{A}\|_{F}=\sqrt{\sum_{i=1}^{n_{1}} \sum_{j=1}^{n_{2}} \sum_{k=1}^{n_{3}} a_{i j k}^{2}} $$
-
+\paragraph{Tensor SVD} 
+Let A be a $l \times m \times n$ $real-valued$ tensor; 
+then A can be factored as 
+$$\mathcal{A}=\mathcal{U} * \mathcal{S} * \mathcal{V}^{T}$$
+with $\ell \times \ell \times n$ orthogonal tensor $\mathcal{U}$, $m \times m \times n$ orthogonal tensor $\mathcal{V}$, and $\ell \times m \times n$ $f-diagonal$ tensor $\mathcal{S}$. An illustration is given in Figure 2.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.8]{tsvd}
+	\caption{Tensor SVD}
+\end{figure}
+\paragraph{Tensor Pivoted QR Factorization} 
+Let A be a $l \times m \times n$ $real-valued$ tensor; 
+then A can be factored as 
+$$\mathcal{A} * \mathcal{P}=\mathcal{Q} * \mathcal{R}$$
+where $\mathcal{Q}$ is an $\ell \times \ell \times n$ orthogonal tensor, $\mathcal{R}$ is an $\ell \times m \times n$ $f-upper$ triangular tensor, and
+$\mathcal{P}$ is a permutation tensor.
 \section{Algorithms}
 % algorithm for pca
 \begin{algorithm}  
@@ -232,7 +251,7 @@ $$ \|\mathcal{A}\|_{F}=\sqrt{\sum_{i=1}^{n_{1}} \sum_{j=1}^{n_{2}} \sum_{k=1}^{n
 \end{algorithm}
 
 % algorithm for trpca
-We apply TRPCA for image denoising. Note that the choice of $ \lambda $ is critical for the recovery performance. To verify the correctness of our main results, we set $ \lambda=1 / \sqrt{n_{1} n_{3}} $ in the experiments.\\
+We apply TRPCA for image denoising. Note that the choice of $ \lambda $ is critical for the recovery performance. We set $ \lambda=1 / \sqrt{n_{1} n_{3}} $ in the experiments.\\
 \begin{algorithm}  
 	\caption{Solve Tensor Robust PCA by ADMM.}
 	\begin{algorithmic} 
@@ -244,10 +263,10 @@ We apply TRPCA for image denoising. Note that the choice of $ \lambda $ is criti
 		\mu_{\max }=1 \mathrm{e} 10, \epsilon=1 \mathrm{e}-8 $
 		\While {not converged}
 		\State 1. Update $ \mathcal{L}_{k+1} $ by
-		$$ \boldsymbol{C}_{k+1}=\underset{\boldsymbol{\boldsymbol{\mathcal { L }}}}{\operatorname{argmin}}\|\boldsymbol{\mathcal { L }}\|_{*}+\frac{\mu_{k}}{2}\left\|\boldsymbol{\mathcal{L}}+\boldsymbol{\mathcal{E}_k}-\boldsymbol{\mathcal{X}}+\frac{\boldsymbol{\mathcal{Y}}_{k}}{\mu_{k}}\right\|_{F}^{2} $$
+		$$ \boldsymbol{C}_{k+1}=\underset{\boldsymbol{\boldsymbol{\mathcal { L }}}}{\operatorname{argmin}}\|\boldsymbol{\mathcal { L }}\|_{*}+\frac{\mu_{k}}{2}\left\|\boldsymbol{\mathcal { L }}+\boldsymbol{\mathcal { E }}_{k}-\boldsymbol{X}+\frac{\boldsymbol{Y}_{k}}{\mu_{k}}\right\|_{F}^{2} $$
 		\State 2. Update $ \mathcal{E}_{k+1} $ by
 		$$
-		\mathcal{E}_{k+1}=\underset{\varepsilon}{\operatorname{argmin}} \lambda\|\mathcal{E}\|_{1}+\frac{\mu_{k}}{2}\left\|\boldsymbol{\mathcal{L}}_{k+1}+\boldsymbol{\mathcal{E}}-\boldsymbol{\mathcal{X}}+\frac{\boldsymbol{\mathcal{Y}}_{k}}{\mu_{k}}\right\|_{F}^{2} $$
+		\mathcal{E}_{k+1}=\underset{\varepsilon}{\operatorname{argmin}} \lambda\|\mathcal{E}\|_{1}+\frac{\mu_{k}}{2}\left\|\mathcal{L}_{k+1}+\mathcal{E}-\mathcal{X}+\frac{\mathcal{Y}_{k}}{\mu_{k}}\right\|_{F}^{2} $$
 		\State 3.  $$\boldsymbol{\mathcal{Y}}_{k+1}=\boldsymbol{\mathcal{Y}}_{k}+\mu_{k}\left(\mathcal{L}_{k+1}+\mathcal{E}_{k+1}-\boldsymbol{X}\right) $$
 		4. Update $ \mu_{k+1} $ by $ \mu_{k+1}=\min \left(\rho \mu_{k}, \mu_{\max }\right) $
 		5. Check the convergence conditions
@@ -262,8 +281,17 @@ We apply TRPCA for image denoising. Note that the choice of $ \lambda $ is criti
 	\end{algorithmic}
 \end{algorithm}
 
-
 \section{Experiments}
+We experiment on a subset of the Extended Yale Face Database B which contains the first 30 different illuminations of all 38 people.
+In all our experiments, we measure the recognition ratio by
+$$\frac{\text{number of correctly matched images}}{\text{number of test images}}$$
+The ratio curves for traditional Matrix PCA, T-SVD, and Tensor QR Method respectively is shown in Figure 3. 
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.6]{all}
+	\caption{Ratio Curves for Different Methods}
+\end{figure}
+We apply Tensor Robust PCA method in T-SVD method. The tensor can be decomposed as a combination of a tensor with $rank=171$ and a sparse tensor. Then we set $k=rank=171$ in the T-SVD method, and the ratio is 0.7632.
 \subsection{Storage Comparison}
 \begin{align*}
 \text{Storage}_{T-SVD} = K_{T-SVD} \times  l + K_{T-SVD} \times (\text{num of training images})\\
@@ -272,40 +300,27 @@ We apply TRPCA for image denoising. Note that the choice of $ \lambda $ is criti
 \end{align*}
 We compare the storage for same $k$ for different algorithms
 \begin{table}[H]
-\centering
-\begin{tabular}{llll}
-\hline
-PCA & T-SVD & T-PQR & TRSVD \\
-\hline
-12.5   & 1  & 1.12  & 2.1
-\end{tabular}
+	\centering
+	\begin{tabular}{llll}
+		\hline
+		PCA & T-SVD & T-PQR & TRSVD \\
+		\hline
+		12.5   & 1  & 1.12  & 2.1
+	\end{tabular}
 \end{table}
 
 
 \subsection{Time Comparison}
 We compare the running time for same $k$ of different algorithms
 \begin{table}[H]
-\centering
-\begin{tabular}{llll}
-\hline
-PCA & T-SVD & T-PQR & TRSVD \\
-\hline
-1   & 5.26  & 5.31  & 10.1 
-\end{tabular}
+	\centering
+	\begin{tabular}{llll}
+		\hline
+		PCA & T-SVD & T-PQR & TRSVD \\
+		\hline
+		1   & 5.26  & 5.31  & 10.1 
+	\end{tabular}
 \end{table}
-
-\subsection{Acceleration TIPS}
-Use LEMMA2 to accelerate our algorithm. Time of different algorithms:
-\begin{table}[H]
-\centering
-\begin{tabular}{ll}
-\hline
-T-SVD & T-SVD-With LEMMA2\\
-\hline
-9.8   & 1  
-\end{tabular}
-\end{table}
-
 \newpage
 % bibliography
 \nocite{*}
