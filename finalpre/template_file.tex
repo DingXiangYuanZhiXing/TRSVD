@@ -149,13 +149,15 @@ A_{n_{3}} & A_{n_{3}-1} & \ddots & A_{2} & A_{1}
 \paragraph{Tensor Product} Let  $\mathcal{A}$  be  $n_{1} \times n_{2} \times n_{3}$  and  $\mathcal{B}$  be  $n_{2} \times \ell \times n_{3}$ .  Then the product
 $\mathcal{A} * \mathcal{B}$  is the  $n_{1} \times \ell \times n_{3}$  tensor
 $$\mathcal{A} * \mathcal{B}=\text { fold }(\operatorname{circ}(\text { unfold }(\mathcal{A}, 1)) \cdot \operatorname{unfold}(\mathcal{B}, 1), 1)$$
-\text { LEMMA }  $$\mathcal{A} *(\mathcal{B} * \mathcal{C})=(\mathcal{A} * \mathcal{B}) * \mathcal{C}$$
+\text { LEMMA1 }  $$\mathcal{A} *(\mathcal{B} * \mathcal{C})=(\mathcal{A} * \mathcal{B}) * \mathcal{C}$$
+\text { LEMMA2 }
+$$\left.\left(\mathcal{A}^{T} * \mathcal{B}\right)(1: k,:, ;)=(\mathcal{A}(:, 1: k,:))^{T} * \mathcal{B}\right)$$
 \paragraph{Identity Tensor} The  $n \times n \times \ell$  identity tensor  $\mathcal{I}_{n n \ell}$  is the tensor whose front face is the  $n \times n$  identity matrix, and whose other faces are all zeros.
 \paragraph{Inverse Tensor} An  $n \times n \times n$  tensor  $\mathcal{A}$  has an inverse  $\mathcal{B}$  provided that
 $$\mathcal{A} * \mathcal{B}=\mathcal{I}, \quad \text { and } \quad \mathcal{B} * \mathcal{A}=\mathcal{I}$$
 \paragraph{Tensor Transpose} If  $\mathcal{A}$  is  $n_{1} \times n_{2} \times n_{3}$,  then  $\mathcal{A}^{T}$  is the $ n_{2} \times n_{1} \times n_{3}$  tensor obtained by transposing each of the front-back faces and then reversing the order of transposed faces 2 through  $n_{3}$ . In other words,
 $$\mathcal{A}^{T}=\text { fold }\left(\text { unfold }\left(\mathcal{A}, 1,\left[1, n_{3}:-1: 2\right]\right), 1\right)$$
-\text { LEMMA }   Suppose  $\mathcal{A}, \mathcal{B}$  are two tensors such that  $\mathcal{A} * \mathcal{B}$  and  $\mathcal{B}^{T} * \mathcal{A}^{T}$  is defined. Then  $(\mathcal{A} * \mathcal{B})^{T}=\mathcal{B}^{T} * \mathcal{A}^{T}$.
+\text { LEMMA3 }   Suppose  $\mathcal{A}, \mathcal{B}$  are two tensors such that  $\mathcal{A} * \mathcal{B}$  and  $\mathcal{B}^{T} * \mathcal{A}^{T}$  is defined. Then  $(\mathcal{A} * \mathcal{B})^{T}=\mathcal{B}^{T} * \mathcal{A}^{T}$.
 \paragraph{Orthogonal Tensor} An $ n \times n \times \ell $ real-valued tensor $ \mathcal{Q} $ is orthogonal if $ \mathcal{Q}^{T} * \mathcal{Q}= \mathcal{Q} * \mathcal{Q}^{T}=\mathcal{I}$.
 \paragraph{Permutation Tensor} A permutation tensor is an $ n \times n \times \ell $ tensor  $\mathcal{P}=\left(p_{i j k}\right)$  with exactly $ n $ entries of unity, such that if  $p_{i j k}=1$,  it is the only non-zero entry in row i, column j, and slice k.
 \paragraph{F-Norm of Tensor} Suppose $\mathcal{A}=\left(a_{i j k}\right)$ is size $ n_{1} \times n_{2} \times n_{3} $.  Then
