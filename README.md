@@ -9,3 +9,4 @@
 4.  preprocess.m: 将数据分为训练集和测试集
 5.  main.m: 实验验证不同方法
 6.  rank.m: Tensor Robust PCA分解
+7.  finalpre: latex文档
